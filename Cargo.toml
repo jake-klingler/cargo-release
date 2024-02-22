@@ -99,3 +99,8 @@ cargo-test-support.git = "https://github.com/rust-lang/cargo"
 [profile.release]
 panic = "abort"
 codegen-units = 1
+
+# TEMPORARY compilation fix, see: https://github.com/sfackler/rust-openssl/issues/2179#issuecomment-1958688396
+# REMOVE this when this PR is merged: https://github.com/gyscos/zstd-rs/pull/262
+[patch.crates-io]
+zstd-sys = { git = "https://github.com/harana-oss/zstd-rs.git" }
