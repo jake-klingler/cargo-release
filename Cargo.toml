@@ -53,9 +53,9 @@ pre-release-replacements = [
 # version of openssl in additional to vendored-libgit2 so that `cargo-release`
 # can be built without having to install libgit2 or openssl on the system and
 # the binary can be run everywhere.
-default = ["vendored-libgit2", "vendored-openssl"]
+default = ["vendored-libgit2"]
 vendored-libgit2 = ["git2/vendored-libgit2"]
-vendored-openssl = ["git2/vendored-openssl"]
+#vendored-openssl = ["git2/vendored-openssl"]
 
 [dependencies]
 cargo_metadata = "0.18"
@@ -99,8 +99,3 @@ cargo-test-support.git = "https://github.com/rust-lang/cargo"
 [profile.release]
 panic = "abort"
 codegen-units = 1
-
-# TEMPORARY compilation fix, see: https://github.com/sfackler/rust-openssl/issues/2179#issuecomment-1958688396
-# REMOVE this when this PR is merged: https://github.com/gyscos/zstd-rs/pull/262
-[patch.crates-io]
-zstd-sys = { git = "https://github.com/harana-oss/zstd-rs.git" }
